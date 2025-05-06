@@ -1,0 +1,59 @@
+sfc /scannow
+
+    Purpose: Scans and repairs corrupted or missing system files.
+    Use Case: Fixes system errors, crashes, or missing DLL issues.
+    Example: Run sfc /scannow to initiate a system file check and repair.
+
+chkdsk /f /r
+
+    Purpose: Checks and repairs disk errors, including bad sectors.
+    Use Case: Resolves file system errors or disk corruption causing slow performance or crashes.
+    Example: chkdsk C: /f /r scans and fixes errors on the C: drive (requires reboot if the drive is in use).
+
+DISM /Online /Cleanup-Image /RestoreHealth
+
+    Purpose: Repairs the Windows component store, which can fix issues with Windows updates or corrupted system images.
+    Use Case: Used when sfc /scannow fails or Windows Update issues persist.
+    Example: DISM /Online /Cleanup-Image /RestoreHealth restores system health using online sources.
+
+ipconfig /flushdns
+
+    Purpose: Clears the DNS resolver cache.
+    Use Case: Fixes network connectivity issues caused by outdated or corrupted DNS records.
+    Example: ipconfig /flushdns clears the cache to resolve website access problems.
+
+netsh winsock reset
+
+    Purpose: Resets the Windows Sockets (Winsock) catalog to default settings.
+    Use Case: Resolves network issues like inability to connect to the internet or specific services.
+    Example: netsh winsock reset followed by a reboot.
+
+netsh int ip reset
+
+    Purpose: Resets TCP/IP stack settings to default.
+    Use Case: Fixes network configuration issues, often paired with netsh winsock reset.
+    Example: netsh int ip reset resets IP settings.
+
+bootrec /fixmbr (in Recovery Environment)
+
+    Purpose: Repairs the Master Boot Record to fix boot issues.
+    Use Case: Resolves "Bootmgr is missing" or other boot failures.
+    Example: Run bootrec /fixmbr in Windows Recovery Environment (accessed via bootable media).
+
+bootrec /fixboot (in Recovery Environment)
+
+    Purpose: Repairs the boot sector.
+    Use Case: Fixes issues where Windows fails to start due to a corrupted boot sector.
+    Example: bootrec /fixboot in Recovery Environment.
+
+del /f /q %temp%
+
+    Purpose: Deletes temporary files to free up space and resolve performance issues.
+    Use Case: Clears clutter causing slow system performance or application errors.
+    Example: del /f /q %temp% deletes all files in the temp folder.
+
+gpupdate /force
+
+    Purpose: Forces an immediate update of Group Policy settings.
+    Use Case: Fixes issues where policy changes (e.g., network or security settings) aren’t applied.
+    Example: gpupdate /force applies policy updates without waiting.
